@@ -11,7 +11,7 @@ from keras.layers import BatchNormalization
 from keras.layers.advanced_activations import LeakyReLU
 from keras.models import Sequential
 #from keras.optimizers import Adam
-self.optimizer = adam.Adam(lr=0.0002, beta_1=0.5, decay=8e-8) #modified
+from keras.optimizer_v2 import adam #modified
 
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')   # allows code to run without a system DISPLAY
@@ -27,7 +27,8 @@ class GAN(object):
 
         self.shape = (self.width, self.height, self.channels)
 
-        self.optimizer = Adam(lr=0.0002, beta_1=0.5, decay=8e-8)
+        #self.optimizer = Adam(lr=0.0002, beta_1=0.5, decay=8e-8)
+        self.optimizer = adam.Adam(lr=0.0002, beta_1=0.5, decay=8e-8) #modified
 
         self.G = self.__generator()
         self.G.compile(loss='binary_crossentropy', optimizer=self.optimizer)
