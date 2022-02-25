@@ -10,7 +10,8 @@ from keras.layers import Input, Dense, Reshape, Flatten, Dropout
 from keras.layers import BatchNormalization
 from keras.layers.advanced_activations import LeakyReLU
 from keras.models import Sequential
-from keras.optimizers import Adam
+#from keras.optimizers import Adam
+self.optimizer = adam.Adam(lr=0.0002, beta_1=0.5, decay=8e-8) #modified
 
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')   # allows code to run without a system DISPLAY
